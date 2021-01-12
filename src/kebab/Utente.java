@@ -25,8 +25,14 @@ public class Utente implements Runnable {
         while (!stop) {
             while(!soddisfatto){
                 soddisfatto = kebabbaro.sfornaKebab();
-                if(soddisfatto)
-                    System.out.println("Thread soddisfatto");
+                if(soddisfatto){
+                    System.out.println("Thread soddisfatto: " + numero);
+//                    notifyAll();
+                }else{
+                    try {
+                        wait();
+                    }catch (InterruptedException ex) {}
+                }
             }
         }
     }

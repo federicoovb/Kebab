@@ -14,9 +14,14 @@ public class Kebabbaro {
     
     public synchronized boolean sfornaKebab() {
         kebab = false;
+        prepara();
+        return kebab;
+    }
+    
+    public void prepara(){
         try {
             Thread.sleep(3000);
+            kebab = true;
         } catch (InterruptedException ex) {}
-        return kebab;
     }
 }
